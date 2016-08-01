@@ -1,0 +1,49 @@
+<div class="modal-body" ng-controller="ProductPicInfoPopupCtrl">
+    <form name="productPicInfoForm" class="form-horizontal" novalidate>
+        
+        
+        <div class="form-group">
+            <label for="productPicPkid" class="col-md-3 control-label">产品图片信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="productPicPkid" ng-model="transData.productPicPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="productInfoPkid" class="col-md-3 control-label">产品信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="productInfoPkid" ng-model="transData.productInfoPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="picPath" class="col-md-3 control-label">图片地址：</label>
+            <div class="col-md-6">
+                <input type="text" id="picPath" ng-model="transData.picPath" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="picComment" class="col-md-3 control-label">图片说明：</label>
+            <div class="col-md-6">
+                <input type="text" id="picComment" ng-model="transData.picComment" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="displayOrder" class="col-md-3 control-label">显示顺序：</label>
+            <div class="col-md-6">
+                <input type="text" id="displayOrder" ng-model="transData.displayOrder" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="activeFlag" class="col-md-3 control-label">可用标识：</label>
+            <div class="col-md-6">
+                <input type="text" id="activeFlag" ng-model="transData.activeFlag" />
+            </div>
+        </div>
+        
+        
+    </form>
+</div>

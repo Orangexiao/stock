@@ -1,0 +1,168 @@
+<div class="modal-body" ng-controller="ProductInfoPopupController">
+    <tabset justified="true" class="tab-container">
+        <tab heading="商品基本信息">
+            <div name="productInfoForm" class="form-horizontal" novalidate>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="productId" class="col-sm-2 control-label">商品ID
+                            ：</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="productId" class="form-control"
+                                       ng-model="transData.productId" required/>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="importProduct()">导入</button>
+              </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="productUrl" class="col-sm-2 control-label">商品URL
+                            ：</label>
+
+                        <div class="col-sm-6">
+                            <input type="url" id="productUrl"
+                                   ng-model="transData.productUrl" class="form-control" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="productTitle" class="col-sm-2 control-label">商品标题
+                            ：</label>
+
+                        <div class="col-sm-8">
+                    <textarea id="productTitle"
+                              ng-model="transData.productTitle" class="form-control" style="height: 120px"
+                              required></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="productKey" class="col-sm-2 control-label">商品关键字
+                            ：</label>
+
+                        <div class="col-sm-8">
+                   <textarea type="text" id="productKey"
+                             ng-model="transData.productKey" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="productPrice" class="col-sm-2 control-label">商品单价
+                            ：</label>
+
+                        <div class="col-sm-3">
+                            <input type="text" id="productPrice"
+                                   ng-model="transData.productPrice" class="form-control" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="costPrice" class="col-sm-2 control-label">进货单价
+                            ：</label>
+
+                        <div class="col-sm-3">
+                            <input type="text" id="costPrice"
+                                   ng-model="transData.costPrice" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-sm-2 control-label">平台选择
+                            ：</label>
+
+                        <div class="col-sm-3">
+                            <ui-select ng-model="transData.platformCode" on-select="getSelected($item, $model)"
+                                       theme="bootstrap">
+                                <ui-select-match>{{$select.selected.dictOptValue}}</ui-select-match>
+                                <ui-select-choices
+                                        repeat="platform.dictOptCode as platform in platFormList | filter: $select.search">
+                                    <div ng-bind-html="platform.dictOptValue | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="platformProductUrl" class="col-sm-2 control-label">平台商品地址
+                            ：</label>
+
+                        <div class="col-sm-6">
+                            <input type="url" id="platformProductUrl"
+                                   ng-model="transData.platformProductUrl" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tab>
+        <tab heading="商品规格信息">
+
+            <div class="panel-body">
+                <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="addPattern()"><i
+                        class="fa fa-plus"></i>追加
+                </button>
+                <button type="button" class="btn m-b-xs btn-sm btn-success btn-check" ng-disabled="testForm.$waiting" ng-click="save()">
+                    <i class="fa  fa-check" >保存</i>
+                </button>
+                <button type="button" ng-disabled="testForm.$waiting" ng-click="testForm.$cancel()"
+                        class="btn m-b-xs btn-sm btn-success btn-cancel">
+                    <i class="fa fa-refresh">取消</i>
+                </button>
+            </div>
+            <ng-form name="testForm"  editable-form >
+            <table st-table="planInfoList" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>规格ID</th>
+                    <th>规格名</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in patternInfoList |filter : patternFilter">
+                    <td>
+                        <span editable-text="row.patternId" e-form="testForm" e-name="patternId" e-required>
+                        {{ row.patternId || '空值' }}
+                    </span>
+                    <td>
+                        <span editable-text="row.patternName" e-form="testForm" e-name="patternName" e-required>
+                        {{ row.patternName || '空值' }}
+                        </span>
+                    </td>
+                    </td>
+                    <td style="width:100px">
+
+                        <div class="buttons" ng-show="!testForm.$visible">
+                            <button class="btn btn-sm btn-icon btn-info" ng-click="testForm.$show()"><i
+                                    class="fa fa-edit"></i></button>
+                            <button class="btn btn-sm btn-icon btn-danger" ng-click="removePattern(row,$index)"><i
+                                    class="fa fa-trash-o"></i></button>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </ng-form>
+        </tab>
+    </tabset>
+
+</div>

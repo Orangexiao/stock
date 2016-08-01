@@ -1,0 +1,58 @@
+<div class="panel panel-default" ng-controller="ProductInfoController">
+        <div class="panel-heading">
+            <ng-form class="form-inline">
+                <div class="form-group">
+                    <label for="queryOpt"></label>
+                    <input type="text" id="queryOpt" ng-model="whereClause">
+                </div>
+                <button class="btn btn-sm btn-success" ng-click="queryByOpt()">检索</button>
+            </ng-form>
+        </div>
+
+    <div class="panel-body">
+        <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="insProductInfo()"><i class="fa fa-plus"></i>追加</button>
+    </div>
+    <table st-table="planInfoList" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th style="width:3%;">商品ID</th>
+            <th style="width:15%;">商品URL</th>
+            <th style="width:15%;">商品标题</th>
+            <th style="width:15%;">商品关键字</th>
+            <th style="width:6%">商品单价</th>
+            <th style="width:6%">进货单价</th>
+            <th>进货平台</th>
+            <th>进货平台地址</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in productInfoList">
+            <td>{{row.productId}}</td>
+            <td><a ng-href="{{row.productUrl}}">{{row.productUrl}}</a></td>
+            <td>{{row.productTitle}}</td>
+            <td>{{row.productKey}}</td>
+            <td>{{row.productPrice}}</td>
+            <td>{{row.costPrice}}</td>
+            <td>{{row.platformName}}</td>
+            <td>{{row.platformProductUrl}}</td>
+            <td>
+                <button type="button" ng-click="updProductInfo(row,$index)" class="btn btn-sm btn-icon btn-info">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button type="button" ng-click="delProductInfo(row,$index)" class="btn btn-sm btn-icon btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="10" class="text-center">
+                <uib-pagination boundary-links="true" items-per-page="pageObj.pageSize" total-items="pageObj.totalItems" ng-change="onPageChange()" ng-model="pageObj.currentPage" class="pagination-sm m-t-none m-b" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+            </td>
+        </tr>
+
+        </tfoot>
+    </table>
+</div>

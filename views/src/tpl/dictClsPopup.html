@@ -1,0 +1,26 @@
+<div class="modal-body" ng-controller="DictClsPopupCtrl">
+    <tabset justified="true" class="tab-container">
+        <tab heading="字典类别信息">
+            <div name="dictClsForm" class="form-horizontal" novalidate>
+                <div class="form-group">
+                    <label for="dictClsCode" class="col-md-3 control-label">字典项目编码：</label>
+                    <div class="col-md-6">
+                        <input type="text" id="dictClsCode" ng-model="transData.dictClsCode" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dictClsName" class="col-md-3 control-label">字典项目名：</label>
+                    <div class="col-md-6">
+                        <input type="text" id="dictClsName" ng-model="transData.dictClsName" required />
+                    </div>
+                </div>
+            </div>
+        </tab>
+        <tab heading="字典项目信息" ng-show="isDictOptVisible">
+            <div class="panel-heading">
+                <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="insDictOpt()"><i class="fa fa-plus"></i>追加</button>
+            </div>
+            <div class="grid" ui-grid-edit ui-grid="gridOptions"></div>
+        </tab>
+    </tabset>
+</div>

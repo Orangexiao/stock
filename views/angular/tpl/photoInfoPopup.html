@@ -1,0 +1,49 @@
+<div class="modal-body" ng-controller="PhotoInfoPopupCtrl">
+    <form name="photoInfoForm" class="form-horizontal" novalidate>
+        
+        
+        <div class="form-group">
+            <label for="photoInfoPkid" class="col-md-3 control-label">相片信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="photoInfoPkid" ng-model="transData.photoInfoPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="orderInfoPkid" class="col-md-3 control-label">订单信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="orderInfoPkid" ng-model="transData.orderInfoPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="photoNo" class="col-md-3 control-label">相片编号：</label>
+            <div class="col-md-6">
+                <input type="text" id="photoNo" ng-model="transData.photoNo" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="photoPath" class="col-md-3 control-label">相片路径：</label>
+            <div class="col-md-6">
+                <input type="text" id="photoPath" ng-model="transData.photoPath" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="displayFlag" class="col-md-3 control-label">显示标识：</label>
+            <div class="col-md-6">
+                <input type="text" id="displayFlag" ng-model="transData.displayFlag" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="displayOrder" class="col-md-3 control-label">显示顺序：</label>
+            <div class="col-md-6">
+                <input type="text" id="displayOrder" ng-model="transData.displayOrder" />
+            </div>
+        </div>
+        
+        
+    </form>
+</div>

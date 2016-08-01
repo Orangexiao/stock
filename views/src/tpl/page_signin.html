@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<div class="login-form" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
+  <div class="close"> </div>
+  <div class="head-info">
+    <label class="lbl-1"> </label>
+    <label class="lbl-2"> </label>
+    <label class="lbl-3"> </label>
+  </div>
+  <div class="clear"> </div>
+  <div class="avtar">
+    <img src="images/avatar2.png" />
+  </div>
+  <form>
+    <input type="text" class="text login_username" ng-model="user.userName" required >
+    <div class="key">
+      <input type="password" class="login_password" ng-model="user.password" required>
+    </div>
+    <div class="signin">
+      <button type="submit" class="login_submit" ng-click="login()" ng-disabled='form.$invalid'>登  入</button>
+    </div>
+  </form>
+
+</div>

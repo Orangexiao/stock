@@ -1,0 +1,87 @@
+<div class="modal-body" ng-controller="StockInfoPopupCtrl">
+    <div name="stockInfoForm" class="form-horizontal" novalidate>
+        
+        
+        <div class="form-group">
+            <label for="stockInfoPkid" class="col-md-3 control-label">进货信息表主键ID
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="stockInfoPkid"
+                       ng-model="transData.stockInfoPkid"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="patternInfoPkid" class="col-md-3 control-label">商品规格信息表主键ID
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="patternInfoPkid"
+                       ng-model="transData.patternInfoPkid"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="stockNo" class="col-md-3 control-label">进货单号
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="stockNo"
+                       ng-model="transData.stockNo"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="stockDate" class="col-md-3 control-label">进货日期
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="stockDate"
+                       ng-model="transData.stockDate"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="expressTypeCode" class="col-md-3 control-label">快递类型编码
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="expressTypeCode"
+                       ng-model="transData.expressTypeCode"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="expressType" class="col-md-3 control-label">快递类型名称
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="expressType"
+                       ng-model="transData.expressType"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="expressNo" class="col-md-3 control-label">快递单号
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="expressNo"
+                       ng-model="transData.expressNo"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="stockStatus" class="col-md-3 control-label">订单状态
+                ：</label>
+
+            <div class="col-md-6">
+                <input type="text" id="stockStatus"
+                       ng-model="transData.stockStatus"/>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

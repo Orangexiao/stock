@@ -1,0 +1,46 @@
+<!--<div class="modal-body" ng-controller="ShopInfoPopupCtrl">-->
+<div class="modal-body">
+    <div name="shopInfoForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="sid" class="col-md-3 control-label">店铺ID
+                ：</label>
+
+            <div class="col-md-3">
+                <input type="text" id="sid"
+                       ng-model="transData.sid" class="form-control" required/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="shopName" class="col-md-3 control-label">店铺名
+                ：</label>
+
+            <div class="col-md-3">
+                <input type="text" id="shopName"
+                       ng-model="transData.shopName" class="form-control" required/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="shopUrl" class="col-md-3 control-label">店铺URL
+                ：</label>
+
+            <div class="col-md-7">
+                <input type="url" id="shopUrl"
+                       ng-model="transData.shopUrl" class="form-control" required/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email" class="col-md-3 control-label">邮箱地址
+                ：</label>
+
+            <div class="col-md-7">
+                <input type="email" id="email"
+                       ng-model="transData.email" class="form-control" required/>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="panel-group" ng-controller="DictOptController">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="brandName">品牌名称:</label>
+                    <input type="text" id="brandName">
+                </div>
+                <button class="btn btn-sm btn-success">检索</button>
+                <button class="btn btn-sm btn-info">高级检索</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="insDictOpt()"><i class="fa fa-plus"></i>追加</button>
+        </div>
+        <div class="grid" ui-grid-pagination ui-grid="gridOptions" style="height:{{gridHeight}}px"></div>
+
+    </div>
+</div>

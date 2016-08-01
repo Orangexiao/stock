@@ -1,0 +1,21 @@
+<div class="modal-body" ng-submit="submitForm(userForm.$valid,userForm)" >
+    <div class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="planName" class="col-md-3 control-label">套餐名称：</label>
+            <div class="col-md-6">
+                <input type="text" id="planName" ng-model="transData.planName" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="planPrice" class="col-md-3 control-label">套餐价格：</label>
+            <div class="col-md-6">
+                <input type="text" id="planPrice" ng-model="transData.planPrice" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div col-md-6>
+                <div text-angular ng-model="transData.planContent" class="btn-groups" required ></div>
+            </div>
+        </div>
+    </div>
+</div>

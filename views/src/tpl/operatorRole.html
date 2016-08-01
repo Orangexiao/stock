@@ -1,0 +1,61 @@
+<div class="panel panel-default" ng-controller="OperatorRoleController">
+        <div class="panel-heading">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="queryOpt"></label>
+                    <input type="text" id="queryOpt">
+                </div>
+                <button class="btn btn-sm btn-success">检索</button>
+                <button class="btn btn-sm btn-info">高级检索</button>
+            </form>
+        </div>
+
+    <div class="panel-body">
+        <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="insOperatorRole()"><i class="fa fa-plus"></i>追加</button>
+    </div>
+    <table st-table="planInfoList" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            
+            
+            <th>管理员角色对应表主键ID</th>
+            
+            <th>管理员信息表主键ID</th>
+            
+            <th>角色信息表主键ID</th>
+            
+            
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in operatorRoleList">
+            
+            
+            <td>{{row.roleOperator}}</td>
+            
+            <td>{{row.operatorInfoPkid}}</td>
+            
+            <td>{{row.roleInfoPkid}}</td>
+            
+            
+            <td>
+                <button type="button" ng-click="updOperatorRole(row,$index)" class="btn btn-sm btn-icon btn-info">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button type="button" ng-click="delOperatorRole(row,$index)" class="btn btn-sm btn-icon btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="9" class="text-center">
+                <uib-pagination boundary-links="true" items-per-page="pageObj.pageSize" total-items="pageObj.totalItems" ng-change="onPageChange()" ng-model="pageObj.currentPage" class="pagination-sm m-t-none m-b" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+            </td>
+        </tr>
+
+        </tfoot>
+    </table>
+</div>

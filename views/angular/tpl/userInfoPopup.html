@@ -1,0 +1,126 @@
+<div class="modal-body" ng-controller="UserInfoPopupCtrl">
+    <uib-tabset justified="true" class="tab-container">
+        <uib-tab heading="客户基本信息">
+            <div name="userInfoForm" class="form-horizontal" novalidate>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="qqNo" class="col-sm-2 control-label">QQ号：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="qqNo" ng-model="transData.qqNo" />
+                        </div>
+                        <label for="wechatNo" class="col-sm-2 control-label">微信号：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="wechatNo" ng-model="transData.wechatNo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="fatherName" class="col-sm-2 control-label">爸爸姓名：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="fatherName" ng-model="transData.fatherName" />
+                        </div>
+                        <label for="fatherMobile" class="col-sm-2 control-label">爸爸手机号：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="fatherMobile" ng-model="transData.fatherMobile" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="motherName" class="col-sm-2 control-label">妈妈姓名：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="motherName" ng-model="transData.motherName" />
+                        </div>
+                        <label for="motherMobile" class="col-sm-2 control-label">妈妈手机号：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="motherMobile" ng-model="transData.motherMobile" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="email" class="col-sm-2 control-label">邮箱：</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="email" ng-model="transData.email" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab heading="宝贝信息">
+            <div class="panel-heading">
+                <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="insChildInfo()"><i class="fa fa-plus"></i>追加</button>
+            </div>
+            <div class="panel panel-default">
+                <table st-table="childDataList" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>宝贝姓名</th>
+                        <th>乳名</th>
+                        <th>宝贝生日</th>
+                        <th>宝贝性别</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in childDataList">
+                        <td>{{row.childName | uppercase}}</td>
+                        <td>{{row.nickName}}</td>
+                        <td>{{row.birthday | dateFormat}}</td>
+                        <td>{{row.babySexual }}</td>
+                        <td>
+                            <button type="button" ng-click="updChildInfo(row)" class="btn btn-sm btn-icon btn-info">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button type="button" ng-click="delChildInfo(row)" class="btn btn-sm btn-icon btn-danger">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </uib-tab>
+        <uib-tab heading="地址信息">
+            <div class="panel-heading">
+                <button type="button" class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="insAddressInfo()"><i class="fa fa-plus"></i>追加</button>
+            </div>
+            <div class="panel panel-default">
+                <table st-table="addressDataList" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th style="width:120px">收件人</th>
+                        <th style="width:140px">电话</th>
+                        <th style="width:100px">省</th>
+                        <th style="width:100px">市</th>
+                        <th style="width:100px">区</th>
+                        <th style="width:350px">详细地址</th>
+                        <th width="100"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in addressDataList">
+                        <td>{{row.receiver}}</td>
+                        <td>{{row.receiverTel}}</td>
+                        <td>{{row.province}}</td>
+                        <td>{{row.city}}</td>
+                        <td>{{row.district}}</td>
+                        <td>{{row.address }}</td>
+                        <td>
+                            <button type="button" ng-click="updAddressInfo(row)" class="btn btn-sm btn-icon btn-info">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button type="button" ng-click="delAddressInfo(row)" class="btn btn-sm btn-icon btn-danger">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>

@@ -1,0 +1,49 @@
+<div class="modal-body" ng-controller="AddressInfoPopupCtrl">
+    <div name="addressInfoForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="receiver" class="col-md-3 control-label">收件人：</label>
+            <div class="col-md-2">
+                <input type="text" id="receiver" ng-model="transData.receiver" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="receiverTel" class="col-md-3 control-label">收件人电话：</label>
+            <div class="col-md-2">
+                <input type="text" id="receiverTel" ng-model="transData.receiverTel" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city" class="col-md-3 control-label">所在地区：</label>
+            <div class="col-md-2">
+                <ui-select id="city" ng-model="transData.provinceId" on-select="onProvinceChange($item, $model)" theme="bootstrap"  >
+                    <ui-select-match>{{$select.selected.regionName}}</ui-select-match>
+                    <ui-select-choices repeat="province.regionId as province  in region.provinceList | filter: $select.search">
+                        <span ng-bind-html="province.regionName | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div class="col-md-2">
+                <ui-select ng-model="transData.cityId" on-select="onCityChange($item, $model)" theme="bootstrap"  >
+                    <ui-select-match>{{$select.selected.regionName}}</ui-select-match>
+                    <ui-select-choices repeat="city.regionId as city  in region.cityList | filter: $select.search">
+                        <span ng-bind-html="city.regionName | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div class="col-md-2">
+                <ui-select ng-model="transData.districtId" on-select="onDistrictChange($item,$model)" theme="bootstrap"  >
+                    <ui-select-match>{{$select.selected.regionName}}</ui-select-match>
+                    <ui-select-choices repeat="district.regionId as district  in region.districtList | filter: $select.search">
+                        <span ng-bind-html="district.regionName | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-md-3 control-label">详细地址：</label>
+            <div class="col-md-6">
+                <textarea id="address" ng-model="transData.address" style="width:472px;height:45px" ></textarea>
+            </div>
+        </div>
+    </div>
+</div>

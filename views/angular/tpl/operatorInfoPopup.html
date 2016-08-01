@@ -1,0 +1,62 @@
+<div class="modal-body" ng-controller="OperatorInfoPopupCtrl">
+    <div name="operatorInfoForm" class="form-horizontal" novalidate>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="operatorCode" class="col-md-2 control-label">登入账号：</label>
+                <div class="col-md-3">
+                    <input type="text" id="operatorCode" ng-model="transData.operatorCode" required/>
+                </div>
+                <label for="password" class="col-md-2 control-label">密码：</label>
+                <div class="col-md-3">
+                    <input type="password" id="password" ng-model="transData.password" required/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="operatorName" class="col-md-2 control-label">管理员姓名：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="operatorName" ng-model="transData.operatorName" required/>
+                </div>
+
+                <label for="operatorPhone" class="col-md-2 control-label">管理员电话：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="operatorPhone" ng-model="transData.operatorPhone"/>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="row">
+                <label class="col-md-2 control-label">可用标识：</label>
+
+                <div class="col-md-3">
+                    <ui-select ng-model="transData.activeFlagCode" on-select="getSelected($item, $model)" theme="bootstrap" required>
+                        <ui-select-match>{{$select.selected.dictOptValue}}</ui-select-match>
+                        <ui-select-choices
+                                repeat="dictOpt.dictOptCode as dictOpt  in activeFlagList | filter: $select.search">
+                            <span ng-bind-html="dictOpt.dictOptValue | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+
+                <label class="col-md-2 control-label">角色：</label>
+
+                <div class="col-md-3">
+                    <ui-select multiple ng-model="transData.operatorRoleList" theme="bootstrap" ng-disabled="disabled" required>
+                        <ui-select-match>{{$item.roleName}}</ui-select-match>
+                        <ui-select-choices repeat="roleInfo.roleInfoPkid as roleInfo in roleInfoList | filter : $select.search">
+                            <div ng-bind-html="roleInfo.roleName | highlight: $select.search"></div>
+                        </ui-select-choices>
+
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

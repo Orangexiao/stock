@@ -1,0 +1,40 @@
+<div class="modal-body" ng-controller="ChildInfoPopupCtrl">
+    <div name="childInfoForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="childName" class="col-md-3 control-label">宝贝姓名：</label>
+            <div class="col-md-3">
+                <input type="text" id="childName" ng-model="transData.childName" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nickName" class="col-md-3 control-label">乳名：</label>
+            <div class="col-md-3">
+                <input type="text" id="nickName" ng-model="transData.nickName" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="birthday" class="col-md-3 control-label">生日：</label>
+            <div class="col-md-3">
+                <p class="input-group">
+                    <input id="birthday" type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="transData.birthday" is-open="status.isOpened" datepicker-options="dateOptions"  close-text="关闭" current-text="今天" clear-text="清除" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="openBirthday($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="babySexual" class="col-md-3 control-label">性别：</label>
+            <div class="col-md-3">
+                <ui-select id="babySexual" ng-model="transData.babySexual" on-select="getSelected($item, $model)" theme="bootstrap"  >
+                    <ui-select-match>{{$select.selected.dictOptValue}}</ui-select-match>
+                    <ui-select-choices repeat="sexual.dictOptCode as sexual  in sexualList | filter: $select.search">
+                        <span ng-bind-html="sexual.dictOptValue | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="modal-body" ng-controller="OrderProductPopupCtrl">
+    <form name="orderProductForm" class="form-horizontal" novalidate>
+        
+        
+        <div class="form-group">
+            <label for="orderProductPkid" class="col-md-3 control-label">订单产品信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="orderProductPkid" ng-model="transData.orderProductPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="orderInfoPkid" class="col-md-3 control-label">订单信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="orderInfoPkid" ng-model="transData.orderInfoPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="productInfoPkid" class="col-md-3 control-label">产品信息表主键ID：</label>
+            <div class="col-md-6">
+                <input type="text" id="productInfoPkid" ng-model="transData.productInfoPkid" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="productName" class="col-md-3 control-label">product_name：</label>
+            <div class="col-md-6">
+                <input type="text" id="productName" ng-model="transData.productName" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="count" class="col-md-3 control-label">数量：</label>
+            <div class="col-md-6">
+                <input type="text" id="count" ng-model="transData.count" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="price" class="col-md-3 control-label">单价：</label>
+            <div class="col-md-6">
+                <input type="text" id="price" ng-model="transData.price" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="toalAmount" class="col-md-3 control-label">金额：</label>
+            <div class="col-md-6">
+                <input type="text" id="toalAmount" ng-model="transData.toalAmount" />
+            </div>
+        </div>
+        
+        
+    </form>
+</div>

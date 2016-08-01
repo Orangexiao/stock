@@ -1,0 +1,75 @@
+<div class="modal-body" ng-controller="FunctionInfoPopupCtrl">
+    <form name="functionInfoForm" class="form-horizontal" novalidate>
+
+
+        <div class="form-group">
+            <div class="row">
+                <label for="functionName" class="col-md-2 control-label">功能名称：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="functionName" ng-model="transData.functionName" required/>
+                </div>
+                <label for="functionId" class="col-md-2 control-label">功能ID：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="functionId" ng-model="transData.functionId" required/>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="functionType" class="col-md-2 control-label">功能类型：</label>
+                <div class="col-md-3">
+                    <ui-select id="functionType" ng-model="transData.functionTypeCode" on-select="onFuncTypeChange($item, $model)" theme="bootstrap" required  >
+                        <ui-select-match>{{$select.selected.dictOptValue}}</ui-select-match>
+                        <ui-select-choices repeat="funcType.dictOptCode as funcType  in funcTypeList | filter: $select.search">
+                            <span ng-bind-html="funcType.dictOptValue | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <label for="activeFlag" class="col-md-2 control-label">可用标识：</label>
+
+                <div class="col-md-3">
+                    <ui-select id="activeFlag" ng-model="transData.activeFlagCode" on-select="onActiveFlagChange($item, $model)" theme="bootstrap" required  >
+                        <ui-select-match>{{$select.selected.dictOptValue}}</ui-select-match>
+                        <ui-select-choices repeat="activeFlag.dictOptCode as activeFlag  in activeFlagList | filter: $select.search">
+                            <span ng-bind-html="activeFlag.dictOptValue | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="displayOrder" class="col-md-2 control-label">显示顺序：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="displayOrder" ng-model="transData.displayOrder"/>
+                </div>
+                <label for="parentFunction" class="col-md-2 control-label">上级功能：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="parentFunction" ng-model="transData.parentFunction"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="url" class="col-md-2 control-label">url：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="url" ng-model="transData.url"/>
+                </div>
+                <label for="style" class="col-md-2 control-label">显示样式：</label>
+
+                <div class="col-md-3">
+                    <input type="text" id="style" ng-model="transData.style"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

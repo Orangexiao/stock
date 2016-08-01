@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root [
+        <!ELEMENT root ANY>
+        <!ATTLIST sql  id ID #REQUIRED >]>
+<sqls>
+    <sql id="0001">
+        <![CDATA[
+            SELECT DISTINCT
+                fi.function_info_pkid,
+                fi.function_name,
+                fi.function_id,
+                fi.display_order,
+                fi.url,
+                fi."style"
+            FROM
+                operator_info oi
+            JOIN operator_role opr ON oi.operator_info_pkid = opr.operator_info_pkid
+            JOIN role_info ri ON opr.role_info_pkid = ri.role_info_pkid
+            JOIN role_function rf ON ri.role_info_pkid = rf.role_info_pkid
+            JOIN function_info fi ON rf.function_info_pkid = fi.function_info_pkid
+            WHERE
+                oi.operator_info_pkid = ?
+            ORDER BY
+                display_order ASC
+        ]]>
+    </sql>
+    <sql id="0002">
+        <![CDATA[
+            SELECT
+                product_info_pkid AS "productInfoPkid",
+                product_id AS "productId",
+                product_url AS "productUrl",
+                product_title AS "productTitle",
+                product_price AS "productPrice",
+                product_key AS "productKey",
+                cost_price AS "costPrice",
+                purchase_price AS "purchasePrice",
+                platform_code AS "platformCode",
+                platform_name AS "platformName",
+                platform_product_url AS "platformProductUrl"
+            FROM
+                product_info
+            WHERE
+                product_id like :keyword
+                or product_title like :keyword
+                or product_key like :keyword
+            ORDER BY
+                product_id
+            LIMIT
+                :limit
+            OFFSET
+                :offset
+        ]]>
+    </sql>
+</sqls>
